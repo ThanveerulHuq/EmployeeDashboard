@@ -1,0 +1,22 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+  <a class="navbar-brand" [routerLink]="['/']">Assignment</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText"
+    aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarText">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item " [routerLink]="['/employees']" [routerLinkActive]="['active']">
+        <a class="nav-link" [routerLink]="['/employees']">Employees</a>
+      </li>
+      <li class="nav-item" [routerLink]="['addEmployee/0']" [routerLinkActive]="['active']">
+        <a class="nav-link" [routerLink]="['addEmployee/0']">Add Employee</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+<div class="col-12" style="padding-top:15px">
+  <router-outlet></router-outlet>
+</div>
+<p-toast></p-toast>
+<p-confirmDialog header="Confirmation" icon="pi pi-exclamation-triangle"></p-confirmDialog>

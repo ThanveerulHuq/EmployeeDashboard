@@ -1,0 +1,16 @@
+/* You can add global styles to this file, and also import other style files */
+#dob>span>.ui-inputtext{
+    width:475px !important;
+}
+.ui-multiselect{
+    width: 100%;
+}
+
+.active{
+    background-color: #387dc7fc;
+    font-weight: bold;
+}
+
+.mandatory{
+    color:red;
+}

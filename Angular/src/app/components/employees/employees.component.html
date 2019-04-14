@@ -1,0 +1,35 @@
+<p-table #dt [value]="employees" [paginator]="true" [rows]="10" >
+  <ng-template pTemplate="header">
+      <tr>
+          <th>Edit</th>
+          <th>Employee Name</th>
+          <th>Salary</th>
+          <th>Date of Birth</th>
+          <th>Skills</th>
+          <th>Delete</th>
+      </tr>
+      <tr>
+        <th></th>
+        <th><input type="text" class="form-control" (input)="dt.filter($event.target.value, 'name', 'contains')"></th>
+        <th><input type="number" class="form-control" (input)="dt.filter($event.target.value, 'salary', 'contains')"></th>
+        <th>
+          <!-- <p-calendar  (input)="dt.filter($event.target.value, 'dob', 'date')"></p-calendar> -->
+          <p-calendar appendTo="body" inputStyleClass="form-control" showButtonBar="true" [inputStyle]="{'background-color':'#fff'}"
+          [readonlyInput]="true" dateFormat="dd/mm/yy" (onSelect)="dt.filter($event,'dob' , 'date')"
+          (onClearClick)="dt.filter('','dob','date')"></p-calendar>
+        </th>
+        <th><input type="text" class="form-control" (input)="dt.filter($event.target.value, 'skills', 'contains')"></th>
+        <th></th>
+      </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-employee>
+      <tr>
+          <td><i class="pi pi-pencil" (click)="editEmployee(employee.id)"></i></td>
+          <td>{{employee.name}}</td>
+          <td>{{employee.salary}}</td>
+          <td>{{employee.dob|date: 'fullDate' }}</td>
+          <td>{{employee.skills}}</td>
+          <td><i class="pi pi-trash" (click)="deleteEmployee(employee)"></i></td>
+        </tr>
+  </ng-template>
+</p-table>
